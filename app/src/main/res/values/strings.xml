@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Animal List</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="list_animal">List Animal</string>
+    <string name="animal_detail">Animal Detail</string>
+</resources>
