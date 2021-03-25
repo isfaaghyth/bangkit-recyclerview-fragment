@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/animalListFragment">
+
+    <fragment
+        android:id="@+id/animalListFragment"
+        android:name="app.isfaaghyth.animallist.fragment.AnimalFragment"
+        android:label="Animal List"
+        tools:layout="@layout/fragment_animal">
+        <action
+            android:id="@+id/action_list_to_detail"
+            app:destination="@+id/animalDetailFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/animalDetailFragment"
+        android:name="app.isfaaghyth.animallist.fragment.AnimalDetailFragment"
+        android:label="Animal Detail"
+        tools:layout="@layout/fragment_animal_detail">
+        <argument android:name="name"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="name" />
+        <argument android:name="habitat"
+            app:argType="string"
+            android:defaultValue="habitat" />
+    </fragment>
+
+</navigation>

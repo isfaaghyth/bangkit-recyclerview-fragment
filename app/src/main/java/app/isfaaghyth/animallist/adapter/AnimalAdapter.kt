@@ -3,11 +3,12 @@ package app.isfaaghyth.animallist.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import app.isfaaghyth.animallist.R
 import app.isfaaghyth.animallist.databinding.ItemAnimalBinding
 import app.isfaaghyth.animallist.datasource.Animal
+import app.isfaaghyth.animallist.fragment.AnimalFragmentDirections
 import com.bumptech.glide.Glide
 
 class AnimalAdapter(
@@ -40,6 +41,12 @@ class AnimalAdapter(
             // adding the item view action (of click on listener)
             itemView.setOnClickListener {
                 onItemClicked(animal)
+
+                val toDetail = AnimalFragmentDirections.actionListToDetail()
+                toDetail.name = animal.animalName
+                toDetail.habitat = animal.habitat
+
+                it.findNavController().navigate(toDetail)
             }
         }
     }

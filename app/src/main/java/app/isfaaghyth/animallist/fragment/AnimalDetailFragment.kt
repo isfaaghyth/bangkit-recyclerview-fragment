@@ -24,11 +24,9 @@ class AnimalDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        arguments?.let {
-            // the key of `animal_name` is must be same as the bundle in MainActivity
-            val animalName = it.getString("animal_name")?: ""
-            binding?.tvName?.text = animalName
-        }
+        val bundle = AnimalDetailFragmentArgs.fromBundle(arguments as Bundle)
+
+        binding?.tvName?.text = "${bundle.name} is from ${bundle.habitat}"
     }
 
     override fun onDestroyView() {

@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -36,6 +37,10 @@ android {
 }
 
 dependencies {
+    // navigation component
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.4"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.4"
+
     // this is rendering the data into the list
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 

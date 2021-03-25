@@ -1,6 +1,5 @@
 package app.isfaaghyth.animallist.fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import app.isfaaghyth.animallist.AnimalCallback
-import app.isfaaghyth.animallist.MainActivity
 import app.isfaaghyth.animallist.adapter.AnimalAdapter
 import app.isfaaghyth.animallist.databinding.FragmentAnimalBinding
 import app.isfaaghyth.animallist.datasource.Animal
@@ -18,8 +15,6 @@ class AnimalFragment : Fragment() {
 
     private var _binding: FragmentAnimalBinding? = null
     private val binding get() = _binding
-
-    private var callback: AnimalCallback? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,20 +40,7 @@ class AnimalFragment : Fragment() {
         )
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-
-        // assign the callback object above
-        // to getting the object from the MainActivity
-        if (context is AnimalCallback) {
-            callback = context
-        }
-    }
-
     private fun onAnimalItemClicked(animal: Animal) {
-        // trigger the sendAnimal from the MainActivity
-        callback?.sendAnimal(animal)
-
         Toast.makeText(
             requireContext(),
             "You select the ${animal.animalName} from ${animal.habitat}",
